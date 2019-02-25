@@ -1,0 +1,51 @@
+tosca_definitions_version: tosca_simple_yaml_1_0
+
+metadata:
+  template_name: Conceptpdu
+  template_author: Tim.s@quali.com
+  template_version: 0.2.0
+  template_icon: shell-icon.png
+
+description: >
+  TOSCA based PDU shell
+
+imports:
+  - cloudshell_standard: cloudshell_pdu_standard_2_0_1.yaml
+
+node_types:
+
+  vendor.switch.Conceptpdu:
+    derived_from: cloudshell.nodes.PDU
+    properties:
+      num_ports:
+        type: integer
+        description: Enter the number of ports this PDU should have
+    #  my_property:
+    #    type: string          # optional values: string, integer, float, boolean, cloudshell.datatypes.Password
+    #    default: fast
+    #    description: Some attribute description
+    #    constraints:
+    #      - valid_values: [fast, slow]
+    capabilities:
+      auto_discovery_capability:
+        type: cloudshell.capabilities.AutoDiscovery
+        properties:        
+          enable_auto_discovery:
+            type: boolean
+            default: true
+          auto_discovery_description:
+            type: string
+            default: Describe the auto discovery
+          inventory_description:
+            type: string
+            default: Describe the resource shell template
+          num_ports:
+            type: integer
+            default: 30
+    artifacts:
+      icon:
+        file: shell-icon.png
+        type: tosca.artifacts.File
+      driver:
+        file: ConceptpduDriver.zip
+        type: tosca.artifacts.File
