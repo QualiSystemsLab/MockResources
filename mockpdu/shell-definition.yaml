@@ -19,6 +19,7 @@ node_types:
     properties:
       num_ports:
         type: integer
+        default: 24
         description: Enter the number of ports this PDU should have
     #  my_property:
     #    type: string          # optional values: string, integer, float, boolean, cloudshell.datatypes.Password
@@ -41,7 +42,7 @@ node_types:
             default: Describe the resource shell template
           num_ports:
             type: integer
-            default: 30
+            default: 24
     artifacts:
       icon:
         file: shell-icon.png
