@@ -21,7 +21,7 @@
        <!-- runFromLocalProject - Decides whether to run the driver from the current project directory for debugging purposes, defaults to "false" -->
        <!-- waitForDebugger - When `runFromLocalProject` is enabled, decides whether to wait for a debugger to attach before running any Python driver code, defaults to "false" -->
        <!-- sourceRootFolder - The folder to refer to as the project source root (if specified, the folder will be zipped and deployed instead of the whole project), defaults to the root project folder -->
-        <driver runFromLocalProject="true" waitForDebugger="true" sourceRootFolder="conceptresource">
+        <driver runFromLocalProject="true" waitForDebugger="true" sourceRootFolder="mockpdu">
             <!-- A list of paths to the driver's files or folders relative to the project's root.
  may be a path to a directory, in which case all the files and folders under the directory are added into the driver's zip file.
  if the <sources> element is not specified, all the files under the project are added to the driver's zip file -->
@@ -29,7 +29,7 @@
                  <source>src</source>
             </sources>
             <!-- the driver name of the driver to update -->
-            <targetName>ConceptresourceDriver</targetName>
+            <targetName>MockpduDriver</targetName>
         </driver>
     </drivers>
 

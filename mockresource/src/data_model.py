@@ -72,14 +72,14 @@ class LegacyUtils(object):
         return inspect.getmembers(sys.modules[__name__], inspect.isclass)
 
 
-class Conceptpdu(object):
+class Mockresource(object):
     def __init__(self, name):
         """
         
         """
         self.attributes = {}
         self.resources = {}
-        self._cloudshell_model_name = 'Conceptpdu'
+        self._cloudshell_model_name = 'Mockresource'
         self._name = name
 
     def add_sub_resource(self, relative_path, sub_resource):
@@ -92,9 +92,9 @@ class Conceptpdu(object):
         :param context: cloudshell.shell.core.driver_context.ResourceCommandContext
         :type context: cloudshell.shell.core.driver_context.ResourceCommandContext
         :return:
-        :rtype Conceptpdu
+        :rtype Mockresource
         """
-        result = Conceptpdu(name=context.resource.name)
+        result = Mockresource(name=context.resource.name)
         for attr in context.resource.attributes:
             result.attributes[attr] = context.resource.attributes[attr]
         return result
@@ -152,29 +152,59 @@ class Conceptpdu(object):
         Returns the name of the Cloudshell model
         :return:
         """
-        return 'Conceptpdu'
+        return 'Mockresource'
 
     @property
     def num_ports(self):
         """
         :rtype: float
         """
-        return self.attributes['Conceptpdu.num_ports'] if 'Conceptpdu.num_ports' in self.attributes else None
+        return self.attributes['Mockresource.num_ports'] if 'Mockresource.num_ports' in self.attributes else None
 
     @num_ports.setter
-    def num_ports(self, value):
+    def num_ports(self, value='1'):
         """
-        Enter the number of ports this PDU should have
+        Enter the number of ports to generate
         :type value: float
         """
-        self.attributes['Conceptpdu.num_ports'] = value
+        self.attributes['Mockresource.num_ports'] = value
+
+    @property
+    def my_model(self):
+        """
+        :rtype: str
+        """
+        return self.attributes['Mockresource.my_model'] if 'Mockresource.my_model' in self.attributes else None
+
+    @my_model.setter
+    def my_model(self, value='Model-001'):
+        """
+        Enter the model name
+        :type value: str
+        """
+        self.attributes['Mockresource.my_model'] = value
+
+    @property
+    def power_ports(self):
+        """
+        :rtype: float
+        """
+        return self.attributes['Mockresource.power_ports'] if 'Mockresource.power_ports' in self.attributes else None
+
+    @power_ports.setter
+    def power_ports(self, value='1'):
+        """
+        Enter the number of power ports to generate
+        :type value: float
+        """
+        self.attributes['Mockresource.power_ports'] = value
 
     @property
     def user(self):
         """
         :rtype: str
         """
-        return self.attributes['Conceptpdu.User'] if 'Conceptpdu.User' in self.attributes else None
+        return self.attributes['Mockresource.User'] if 'Mockresource.User' in self.attributes else None
 
     @user.setter
     def user(self, value):
@@ -182,14 +212,14 @@ class Conceptpdu(object):
         User with administrative privileges
         :type value: str
         """
-        self.attributes['Conceptpdu.User'] = value
+        self.attributes['Mockresource.User'] = value
 
     @property
     def password(self):
         """
         :rtype: string
         """
-        return self.attributes['Conceptpdu.Password'] if 'Conceptpdu.Password' in self.attributes else None
+        return self.attributes['Mockresource.Password'] if 'Mockresource.Password' in self.attributes else None
 
     @password.setter
     def password(self, value):
@@ -197,14 +227,14 @@ class Conceptpdu(object):
         
         :type value: string
         """
-        self.attributes['Conceptpdu.Password'] = value
+        self.attributes['Mockresource.Password'] = value
 
     @property
     def enable_password(self):
         """
         :rtype: string
         """
-        return self.attributes['Conceptpdu.Enable Password'] if 'Conceptpdu.Enable Password' in self.attributes else None
+        return self.attributes['Mockresource.Enable Password'] if 'Mockresource.Enable Password' in self.attributes else None
 
     @enable_password.setter
     def enable_password(self, value):
@@ -212,14 +242,14 @@ class Conceptpdu(object):
         The enable password is required by some CLI protocols such as Telnet and is required according to the device configuration.
         :type value: string
         """
-        self.attributes['Conceptpdu.Enable Password'] = value
+        self.attributes['Mockresource.Enable Password'] = value
 
     @property
     def power_management(self):
         """
         :rtype: bool
         """
-        return self.attributes['Conceptpdu.Power Management'] if 'Conceptpdu.Power Management' in self.attributes else None
+        return self.attributes['Mockresource.Power Management'] if 'Mockresource.Power Management' in self.attributes else None
 
     @power_management.setter
     def power_management(self, value=True):
@@ -227,29 +257,14 @@ class Conceptpdu(object):
         Used by the power management orchestration, if enabled, to determine whether to automatically manage the device power status. Enabled by default.
         :type value: bool
         """
-        self.attributes['Conceptpdu.Power Management'] = value
-
-    @property
-    def contact_name(self):
-        """
-        :rtype: str
-        """
-        return self.attributes['Conceptpdu.Contact Name'] if 'Conceptpdu.Contact Name' in self.attributes else None
-
-    @contact_name.setter
-    def contact_name(self, value):
-        """
-        The name of a contact registered in the device.
-        :type value: str
-        """
-        self.attributes['Conceptpdu.Contact Name'] = value
+        self.attributes['Mockresource.Power Management'] = value
 
     @property
     def sessions_concurrency_limit(self):
         """
         :rtype: float
         """
-        return self.attributes['Conceptpdu.Sessions Concurrency Limit'] if 'Conceptpdu.Sessions Concurrency Limit' in self.attributes else None
+        return self.attributes['Mockresource.Sessions Concurrency Limit'] if 'Mockresource.Sessions Concurrency Limit' in self.attributes else None
 
     @sessions_concurrency_limit.setter
     def sessions_concurrency_limit(self, value='1'):
@@ -257,14 +272,14 @@ class Conceptpdu(object):
         The maximum number of concurrent sessions that the driver will open to the device. Default is 1 (no concurrency).
         :type value: float
         """
-        self.attributes['Conceptpdu.Sessions Concurrency Limit'] = value
+        self.attributes['Mockresource.Sessions Concurrency Limit'] = value
 
     @property
     def snmp_read_community(self):
         """
         :rtype: string
         """
-        return self.attributes['Conceptpdu.SNMP Read Community'] if 'Conceptpdu.SNMP Read Community' in self.attributes else None
+        return self.attributes['Mockresource.SNMP Read Community'] if 'Mockresource.SNMP Read Community' in self.attributes else None
 
     @snmp_read_community.setter
     def snmp_read_community(self, value):
@@ -272,14 +287,14 @@ class Conceptpdu(object):
         The SNMP Read-Only Community String is like a password. It is sent along with each SNMP Get-Request and allows (or denies) access to device.
         :type value: string
         """
-        self.attributes['Conceptpdu.SNMP Read Community'] = value
+        self.attributes['Mockresource.SNMP Read Community'] = value
 
     @property
     def snmp_write_community(self):
         """
         :rtype: string
         """
-        return self.attributes['Conceptpdu.SNMP Write Community'] if 'Conceptpdu.SNMP Write Community' in self.attributes else None
+        return self.attributes['Mockresource.SNMP Write Community'] if 'Mockresource.SNMP Write Community' in self.attributes else None
 
     @snmp_write_community.setter
     def snmp_write_community(self, value):
@@ -287,14 +302,14 @@ class Conceptpdu(object):
         The SNMP Write Community String is like a password. It is sent along with each SNMP Set-Request and allows (or denies) chaning MIBs values.
         :type value: string
         """
-        self.attributes['Conceptpdu.SNMP Write Community'] = value
+        self.attributes['Mockresource.SNMP Write Community'] = value
 
     @property
     def snmp_v3_user(self):
         """
         :rtype: str
         """
-        return self.attributes['Conceptpdu.SNMP V3 User'] if 'Conceptpdu.SNMP V3 User' in self.attributes else None
+        return self.attributes['Mockresource.SNMP V3 User'] if 'Mockresource.SNMP V3 User' in self.attributes else None
 
     @snmp_v3_user.setter
     def snmp_v3_user(self, value):
@@ -302,14 +317,14 @@ class Conceptpdu(object):
         Relevant only in case SNMP V3 is in use.
         :type value: str
         """
-        self.attributes['Conceptpdu.SNMP V3 User'] = value
+        self.attributes['Mockresource.SNMP V3 User'] = value
 
     @property
     def snmp_v3_password(self):
         """
         :rtype: string
         """
-        return self.attributes['Conceptpdu.SNMP V3 Password'] if 'Conceptpdu.SNMP V3 Password' in self.attributes else None
+        return self.attributes['Mockresource.SNMP V3 Password'] if 'Mockresource.SNMP V3 Password' in self.attributes else None
 
     @snmp_v3_password.setter
     def snmp_v3_password(self, value):
@@ -317,14 +332,14 @@ class Conceptpdu(object):
         Relevant only in case SNMP V3 is in use.
         :type value: string
         """
-        self.attributes['Conceptpdu.SNMP V3 Password'] = value
+        self.attributes['Mockresource.SNMP V3 Password'] = value
 
     @property
     def snmp_v3_private_key(self):
         """
         :rtype: str
         """
-        return self.attributes['Conceptpdu.SNMP V3 Private Key'] if 'Conceptpdu.SNMP V3 Private Key' in self.attributes else None
+        return self.attributes['Mockresource.SNMP V3 Private Key'] if 'Mockresource.SNMP V3 Private Key' in self.attributes else None
 
     @snmp_v3_private_key.setter
     def snmp_v3_private_key(self, value):
@@ -332,14 +347,44 @@ class Conceptpdu(object):
         Relevant only in case SNMP V3 is in use.
         :type value: str
         """
-        self.attributes['Conceptpdu.SNMP V3 Private Key'] = value
+        self.attributes['Mockresource.SNMP V3 Private Key'] = value
+
+    @property
+    def snmp_v3_authentication_protocol(self):
+        """
+        :rtype: str
+        """
+        return self.attributes['Mockresource.SNMP V3 Authentication Protocol'] if 'Mockresource.SNMP V3 Authentication Protocol' in self.attributes else None
+
+    @snmp_v3_authentication_protocol.setter
+    def snmp_v3_authentication_protocol(self, value='No Authentication Protocol'):
+        """
+        Relevant only in case SNMP V3 is in use.
+        :type value: str
+        """
+        self.attributes['Mockresource.SNMP V3 Authentication Protocol'] = value
+
+    @property
+    def snmp_v3_privacy_protocol(self):
+        """
+        :rtype: str
+        """
+        return self.attributes['Mockresource.SNMP V3 Privacy Protocol'] if 'Mockresource.SNMP V3 Privacy Protocol' in self.attributes else None
+
+    @snmp_v3_privacy_protocol.setter
+    def snmp_v3_privacy_protocol(self, value='No Privacy Protocol'):
+        """
+        Relevant only in case SNMP V3 is in use.
+        :type value: str
+        """
+        self.attributes['Mockresource.SNMP V3 Privacy Protocol'] = value
 
     @property
     def snmp_version(self):
         """
         :rtype: str
         """
-        return self.attributes['Conceptpdu.SNMP Version'] if 'Conceptpdu.SNMP Version' in self.attributes else None
+        return self.attributes['Mockresource.SNMP Version'] if 'Mockresource.SNMP Version' in self.attributes else None
 
     @snmp_version.setter
     def snmp_version(self, value=''):
@@ -347,14 +392,14 @@ class Conceptpdu(object):
         The version of SNMP to use. Possible values are v1, v2c and v3.
         :type value: str
         """
-        self.attributes['Conceptpdu.SNMP Version'] = value
+        self.attributes['Mockresource.SNMP Version'] = value
 
     @property
     def enable_snmp(self):
         """
         :rtype: bool
         """
-        return self.attributes['Conceptpdu.Enable SNMP'] if 'Conceptpdu.Enable SNMP' in self.attributes else None
+        return self.attributes['Mockresource.Enable SNMP'] if 'Mockresource.Enable SNMP' in self.attributes else None
 
     @enable_snmp.setter
     def enable_snmp(self, value=True):
@@ -362,14 +407,14 @@ class Conceptpdu(object):
         If set to True and SNMP isn???t enabled yet in the device the Shell will automatically enable SNMP in the device when Autoload command is called. SNMP must be enabled on the device for the Autoload command to run successfully. True by default.
         :type value: bool
         """
-        self.attributes['Conceptpdu.Enable SNMP'] = value
+        self.attributes['Mockresource.Enable SNMP'] = value
 
     @property
     def disable_snmp(self):
         """
         :rtype: bool
         """
-        return self.attributes['Conceptpdu.Disable SNMP'] if 'Conceptpdu.Disable SNMP' in self.attributes else None
+        return self.attributes['Mockresource.Disable SNMP'] if 'Mockresource.Disable SNMP' in self.attributes else None
 
     @disable_snmp.setter
     def disable_snmp(self, value=False):
@@ -377,14 +422,14 @@ class Conceptpdu(object):
         If set to True SNMP will be disabled automatically by the Shell after the Autoload command execution is completed. False by default.
         :type value: bool
         """
-        self.attributes['Conceptpdu.Disable SNMP'] = value
+        self.attributes['Mockresource.Disable SNMP'] = value
 
     @property
     def console_server_ip_address(self):
         """
         :rtype: str
         """
-        return self.attributes['Conceptpdu.Console Server IP Address'] if 'Conceptpdu.Console Server IP Address' in self.attributes else None
+        return self.attributes['Mockresource.Console Server IP Address'] if 'Mockresource.Console Server IP Address' in self.attributes else None
 
     @console_server_ip_address.setter
     def console_server_ip_address(self, value):
@@ -392,14 +437,14 @@ class Conceptpdu(object):
         The IP address of the console server, in IPv4 format.
         :type value: str
         """
-        self.attributes['Conceptpdu.Console Server IP Address'] = value
+        self.attributes['Mockresource.Console Server IP Address'] = value
 
     @property
     def console_user(self):
         """
         :rtype: str
         """
-        return self.attributes['Conceptpdu.Console User'] if 'Conceptpdu.Console User' in self.attributes else None
+        return self.attributes['Mockresource.Console User'] if 'Mockresource.Console User' in self.attributes else None
 
     @console_user.setter
     def console_user(self, value):
@@ -407,14 +452,14 @@ class Conceptpdu(object):
         
         :type value: str
         """
-        self.attributes['Conceptpdu.Console User'] = value
+        self.attributes['Mockresource.Console User'] = value
 
     @property
     def console_port(self):
         """
         :rtype: float
         """
-        return self.attributes['Conceptpdu.Console Port'] if 'Conceptpdu.Console Port' in self.attributes else None
+        return self.attributes['Mockresource.Console Port'] if 'Mockresource.Console Port' in self.attributes else None
 
     @console_port.setter
     def console_port(self, value):
@@ -422,14 +467,14 @@ class Conceptpdu(object):
         The port on the console server, usually TCP port, which the device is associated with.
         :type value: float
         """
-        self.attributes['Conceptpdu.Console Port'] = value
+        self.attributes['Mockresource.Console Port'] = value
 
     @property
     def console_password(self):
         """
         :rtype: string
         """
-        return self.attributes['Conceptpdu.Console Password'] if 'Conceptpdu.Console Password' in self.attributes else None
+        return self.attributes['Mockresource.Console Password'] if 'Mockresource.Console Password' in self.attributes else None
 
     @console_password.setter
     def console_password(self, value):
@@ -437,14 +482,14 @@ class Conceptpdu(object):
         
         :type value: string
         """
-        self.attributes['Conceptpdu.Console Password'] = value
+        self.attributes['Mockresource.Console Password'] = value
 
     @property
     def cli_connection_type(self):
         """
         :rtype: str
         """
-        return self.attributes['Conceptpdu.CLI Connection Type'] if 'Conceptpdu.CLI Connection Type' in self.attributes else None
+        return self.attributes['Mockresource.CLI Connection Type'] if 'Mockresource.CLI Connection Type' in self.attributes else None
 
     @cli_connection_type.setter
     def cli_connection_type(self, value='Auto'):
@@ -452,14 +497,14 @@ class Conceptpdu(object):
         The CLI connection type that will be used by the driver. Possible values are Auto, Console, SSH, Telnet and TCP. If Auto is selected the driver will choose the available connection type automatically. Default value is Auto.
         :type value: str
         """
-        self.attributes['Conceptpdu.CLI Connection Type'] = value
+        self.attributes['Mockresource.CLI Connection Type'] = value
 
     @property
     def cli_tcp_port(self):
         """
         :rtype: float
         """
-        return self.attributes['Conceptpdu.CLI TCP Port'] if 'Conceptpdu.CLI TCP Port' in self.attributes else None
+        return self.attributes['Mockresource.CLI TCP Port'] if 'Mockresource.CLI TCP Port' in self.attributes else None
 
     @cli_tcp_port.setter
     def cli_tcp_port(self, value):
@@ -467,14 +512,14 @@ class Conceptpdu(object):
         TCP Port to user for CLI connection. If kept empty a default CLI port will be used based on the chosen protocol, for example Telnet will use port 23.
         :type value: float
         """
-        self.attributes['Conceptpdu.CLI TCP Port'] = value
+        self.attributes['Mockresource.CLI TCP Port'] = value
 
     @property
     def backup_location(self):
         """
         :rtype: str
         """
-        return self.attributes['Conceptpdu.Backup Location'] if 'Conceptpdu.Backup Location' in self.attributes else None
+        return self.attributes['Mockresource.Backup Location'] if 'Mockresource.Backup Location' in self.attributes else None
 
     @backup_location.setter
     def backup_location(self, value):
@@ -482,14 +527,14 @@ class Conceptpdu(object):
         Used by the save/restore orchestration to determine where backups should be saved.
         :type value: str
         """
-        self.attributes['Conceptpdu.Backup Location'] = value
+        self.attributes['Mockresource.Backup Location'] = value
 
     @property
     def backup_type(self):
         """
         :rtype: str
         """
-        return self.attributes['Conceptpdu.Backup Type'] if 'Conceptpdu.Backup Type' in self.attributes else None
+        return self.attributes['Mockresource.Backup Type'] if 'Mockresource.Backup Type' in self.attributes else None
 
     @backup_type.setter
     def backup_type(self, value='File System'):
@@ -497,14 +542,14 @@ class Conceptpdu(object):
         Supported protocols for saving and restoring of configuration and firmware files. Possible values are 'File System' 'FTP' and 'TFTP'. Default value is 'File System'.
         :type value: str
         """
-        self.attributes['Conceptpdu.Backup Type'] = value
+        self.attributes['Mockresource.Backup Type'] = value
 
     @property
     def backup_user(self):
         """
         :rtype: str
         """
-        return self.attributes['Conceptpdu.Backup User'] if 'Conceptpdu.Backup User' in self.attributes else None
+        return self.attributes['Mockresource.Backup User'] if 'Mockresource.Backup User' in self.attributes else None
 
     @backup_user.setter
     def backup_user(self, value):
@@ -512,14 +557,14 @@ class Conceptpdu(object):
         Username for the storage server used for saving and restoring of configuration and firmware files.
         :type value: str
         """
-        self.attributes['Conceptpdu.Backup User'] = value
+        self.attributes['Mockresource.Backup User'] = value
 
     @property
     def backup_password(self):
         """
         :rtype: string
         """
-        return self.attributes['Conceptpdu.Backup Password'] if 'Conceptpdu.Backup Password' in self.attributes else None
+        return self.attributes['Mockresource.Backup Password'] if 'Mockresource.Backup Password' in self.attributes else None
 
     @backup_password.setter
     def backup_password(self, value):
@@ -527,7 +572,7 @@ class Conceptpdu(object):
         Password for the storage server used for saving and restoring of configuration and firmware files.
         :type value: string
         """
-        self.attributes['Conceptpdu.Backup Password'] = value
+        self.attributes['Mockresource.Backup Password'] = value
 
     @property
     def name(self):
@@ -564,7 +609,7 @@ class Conceptpdu(object):
         """
         :rtype: str
         """
-        return self.attributes['CS_PDU.System Name'] if 'CS_PDU.System Name' in self.attributes else None
+        return self.attributes['CS_GenericResource.System Name'] if 'CS_GenericResource.System Name' in self.attributes else None
 
     @system_name.setter
     def system_name(self, value):
@@ -572,14 +617,14 @@ class Conceptpdu(object):
         A unique identifier for the device, if exists in the device terminal/os.
         :type value: str
         """
-        self.attributes['CS_PDU.System Name'] = value
+        self.attributes['CS_GenericResource.System Name'] = value
 
     @property
     def vendor(self):
         """
         :rtype: str
         """
-        return self.attributes['CS_PDU.Vendor'] if 'CS_PDU.Vendor' in self.attributes else None
+        return self.attributes['CS_GenericResource.Vendor'] if 'CS_GenericResource.Vendor' in self.attributes else None
 
     @vendor.setter
     def vendor(self, value=''):
@@ -587,14 +632,29 @@ class Conceptpdu(object):
         The name of the device manufacture.
         :type value: str
         """
-        self.attributes['CS_PDU.Vendor'] = value
+        self.attributes['CS_GenericResource.Vendor'] = value
+
+    @property
+    def contact_name(self):
+        """
+        :rtype: str
+        """
+        return self.attributes['CS_GenericResource.Contact Name'] if 'CS_GenericResource.Contact Name' in self.attributes else None
+
+    @contact_name.setter
+    def contact_name(self, value):
+        """
+        The name of a contact registered in the device.
+        :type value: str
+        """
+        self.attributes['CS_GenericResource.Contact Name'] = value
 
     @property
     def location(self):
         """
         :rtype: str
         """
-        return self.attributes['CS_PDU.Location'] if 'CS_PDU.Location' in self.attributes else None
+        return self.attributes['CS_GenericResource.Location'] if 'CS_GenericResource.Location' in self.attributes else None
 
     @location.setter
     def location(self, value=''):
@@ -602,14 +662,14 @@ class Conceptpdu(object):
         The device physical location identifier. For example Lab1/Floor2/Row5/Slot4.
         :type value: str
         """
-        self.attributes['CS_PDU.Location'] = value
+        self.attributes['CS_GenericResource.Location'] = value
 
     @property
     def model(self):
         """
         :rtype: str
         """
-        return self.attributes['CS_PDU.Model'] if 'CS_PDU.Model' in self.attributes else None
+        return self.attributes['CS_GenericResource.Model'] if 'CS_GenericResource.Model' in self.attributes else None
 
     @model.setter
     def model(self, value=''):
@@ -617,14 +677,14 @@ class Conceptpdu(object):
         The device model. This information is typically used for abstract resource filtering.
         :type value: str
         """
-        self.attributes['CS_PDU.Model'] = value
+        self.attributes['CS_GenericResource.Model'] = value
 
     @property
     def model_name(self):
         """
         :rtype: str
         """
-        return self.attributes['CS_PDU.Model Name'] if 'CS_PDU.Model Name' in self.attributes else None
+        return self.attributes['CS_GenericResource.Model Name'] if 'CS_GenericResource.Model Name' in self.attributes else None
 
     @model_name.setter
     def model_name(self, value=''):
@@ -632,17 +692,17 @@ class Conceptpdu(object):
         The catalog name of the device model. This attribute will be displayed in CloudShell instead of the CloudShell model.
         :type value: str
         """
-        self.attributes['CS_PDU.Model Name'] = value
+        self.attributes['CS_GenericResource.Model Name'] = value
 
 
-class PowerSocket(object):
+class ResourcePort(object):
     def __init__(self, name):
         """
         
         """
         self.attributes = {}
         self.resources = {}
-        self._cloudshell_model_name = 'Conceptpdu.PowerSocket'
+        self._cloudshell_model_name = 'Mockresource.ResourcePort'
         self._name = name
 
     def add_sub_resource(self, relative_path, sub_resource):
@@ -655,9 +715,9 @@ class PowerSocket(object):
         :param context: cloudshell.shell.core.driver_context.ResourceCommandContext
         :type context: cloudshell.shell.core.driver_context.ResourceCommandContext
         :return:
-        :rtype PowerSocket
+        :rtype ResourcePort
         """
-        result = PowerSocket(name=context.resource.name)
+        result = ResourcePort(name=context.resource.name)
         for attr in context.resource.attributes:
             result.attributes[attr] = context.resource.attributes[attr]
         return result
@@ -715,7 +775,67 @@ class PowerSocket(object):
         Returns the name of the Cloudshell model
         :return:
         """
-        return 'PowerSocket'
+        return 'ResourcePort'
+
+    @property
+    def mac_address(self):
+        """
+        :rtype: str
+        """
+        return self.attributes['Mockresource.ResourcePort.MAC Address'] if 'Mockresource.ResourcePort.MAC Address' in self.attributes else None
+
+    @mac_address.setter
+    def mac_address(self, value=''):
+        """
+        
+        :type value: str
+        """
+        self.attributes['Mockresource.ResourcePort.MAC Address'] = value
+
+    @property
+    def ipv4_address(self):
+        """
+        :rtype: str
+        """
+        return self.attributes['Mockresource.ResourcePort.IPv4 Address'] if 'Mockresource.ResourcePort.IPv4 Address' in self.attributes else None
+
+    @ipv4_address.setter
+    def ipv4_address(self, value):
+        """
+        
+        :type value: str
+        """
+        self.attributes['Mockresource.ResourcePort.IPv4 Address'] = value
+
+    @property
+    def ipv6_address(self):
+        """
+        :rtype: str
+        """
+        return self.attributes['Mockresource.ResourcePort.IPv6 Address'] if 'Mockresource.ResourcePort.IPv6 Address' in self.attributes else None
+
+    @ipv6_address.setter
+    def ipv6_address(self, value):
+        """
+        
+        :type value: str
+        """
+        self.attributes['Mockresource.ResourcePort.IPv6 Address'] = value
+
+    @property
+    def port_speed(self):
+        """
+        :rtype: str
+        """
+        return self.attributes['Mockresource.ResourcePort.Port Speed'] if 'Mockresource.ResourcePort.Port Speed' in self.attributes else None
+
+    @port_speed.setter
+    def port_speed(self, value):
+        """
+        The port speed (e.g 10Gb/s, 40Gb/s, 100Mb/s)
+        :type value: str
+        """
+        self.attributes['Mockresource.ResourcePort.Port Speed'] = value
 
     @property
     def name(self):
@@ -752,7 +872,7 @@ class PowerSocket(object):
         """
         :rtype: str
         """
-        return self.attributes['CS_PowerSocket.Model Name'] if 'CS_PowerSocket.Model Name' in self.attributes else None
+        return self.attributes['CS_Port.Model Name'] if 'CS_Port.Model Name' in self.attributes else None
 
     @model_name.setter
     def model_name(self, value=''):
@@ -760,7 +880,195 @@ class PowerSocket(object):
         The catalog name of the device model. This attribute will be displayed in CloudShell instead of the CloudShell model.
         :type value: str
         """
-        self.attributes['CS_PowerSocket.Model Name'] = value
+        self.attributes['CS_Port.Model Name'] = value
+
+
+class GenericPowerPort(object):
+    def __init__(self, name):
+        """
+        
+        """
+        self.attributes = {}
+        self.resources = {}
+        self._cloudshell_model_name = 'Mockresource.GenericPowerPort'
+        self._name = name
+
+    def add_sub_resource(self, relative_path, sub_resource):
+        self.resources[relative_path] = sub_resource
+
+    @classmethod
+    def create_from_context(cls, context):
+        """
+        Creates an instance of NXOS by given context
+        :param context: cloudshell.shell.core.driver_context.ResourceCommandContext
+        :type context: cloudshell.shell.core.driver_context.ResourceCommandContext
+        :return:
+        :rtype GenericPowerPort
+        """
+        result = GenericPowerPort(name=context.resource.name)
+        for attr in context.resource.attributes:
+            result.attributes[attr] = context.resource.attributes[attr]
+        return result
+
+    def create_autoload_details(self, relative_path=''):
+        """
+        :param relative_path:
+        :type relative_path: str
+        :return
+        """
+        resources = [AutoLoadResource(model=self.resources[r].cloudshell_model_name,
+            name=self.resources[r].name,
+            relative_address=self._get_relative_path(r, relative_path))
+            for r in self.resources]
+        attributes = [AutoLoadAttribute(relative_path, a, self.attributes[a]) for a in self.attributes]
+        autoload_details = AutoLoadDetails(resources, attributes)
+        for r in self.resources:
+            curr_path = relative_path + '/' + r if relative_path else r
+            curr_auto_load_details = self.resources[r].create_autoload_details(curr_path)
+            autoload_details = self._merge_autoload_details(autoload_details, curr_auto_load_details)
+        return autoload_details
+
+    def _get_relative_path(self, child_path, parent_path):
+        """
+        Combines relative path
+        :param child_path: Path of a model within it parent model, i.e 1
+        :type child_path: str
+        :param parent_path: Full path of parent model, i.e 1/1. Might be empty for root model
+        :type parent_path: str
+        :return: Combined path
+        :rtype str
+        """
+        return parent_path + '/' + child_path if parent_path else child_path
+
+    @staticmethod
+    def _merge_autoload_details(autoload_details1, autoload_details2):
+        """
+        Merges two instances of AutoLoadDetails into the first one
+        :param autoload_details1:
+        :type autoload_details1: AutoLoadDetails
+        :param autoload_details2:
+        :type autoload_details2: AutoLoadDetails
+        :return:
+        :rtype AutoLoadDetails
+        """
+        for attribute in autoload_details2.attributes:
+            autoload_details1.attributes.append(attribute)
+        for resource in autoload_details2.resources:
+            autoload_details1.resources.append(resource)
+        return autoload_details1
+
+    @property
+    def cloudshell_model_name(self):
+        """
+        Returns the name of the Cloudshell model
+        :return:
+        """
+        return 'GenericPowerPort'
+
+    @property
+    def model(self):
+        """
+        :rtype: str
+        """
+        return self.attributes['Mockresource.GenericPowerPort.Model'] if 'Mockresource.GenericPowerPort.Model' in self.attributes else None
+
+    @model.setter
+    def model(self, value):
+        """
+        The device model. This information is typically used for abstract resource filtering.
+        :type value: str
+        """
+        self.attributes['Mockresource.GenericPowerPort.Model'] = value
+
+    @property
+    def serial_number(self):
+        """
+        :rtype: str
+        """
+        return self.attributes['Mockresource.GenericPowerPort.Serial Number'] if 'Mockresource.GenericPowerPort.Serial Number' in self.attributes else None
+
+    @serial_number.setter
+    def serial_number(self, value):
+        """
+        
+        :type value: str
+        """
+        self.attributes['Mockresource.GenericPowerPort.Serial Number'] = value
+
+    @property
+    def version(self):
+        """
+        :rtype: str
+        """
+        return self.attributes['Mockresource.GenericPowerPort.Version'] if 'Mockresource.GenericPowerPort.Version' in self.attributes else None
+
+    @version.setter
+    def version(self, value):
+        """
+        The firmware version of the resource.
+        :type value: str
+        """
+        self.attributes['Mockresource.GenericPowerPort.Version'] = value
+
+    @property
+    def port_description(self):
+        """
+        :rtype: str
+        """
+        return self.attributes['Mockresource.GenericPowerPort.Port Description'] if 'Mockresource.GenericPowerPort.Port Description' in self.attributes else None
+
+    @port_description.setter
+    def port_description(self, value):
+        """
+        The description of the port as configured in the device.
+        :type value: str
+        """
+        self.attributes['Mockresource.GenericPowerPort.Port Description'] = value
+
+    @property
+    def name(self):
+        """
+        :rtype: str
+        """
+        return self._name
+
+    @name.setter
+    def name(self, value):
+        """
+        
+        :type value: str
+        """
+        self._name = value
+
+    @property
+    def cloudshell_model_name(self):
+        """
+        :rtype: str
+        """
+        return self._cloudshell_model_name
+
+    @cloudshell_model_name.setter
+    def cloudshell_model_name(self, value):
+        """
+        
+        :type value: str
+        """
+        self._cloudshell_model_name = value
+
+    @property
+    def model_name(self):
+        """
+        :rtype: str
+        """
+        return self.attributes['CS_PowerPort.Model Name'] if 'CS_PowerPort.Model Name' in self.attributes else None
+
+    @model_name.setter
+    def model_name(self, value=''):
+        """
+        The catalog name of the device model. This attribute will be displayed in CloudShell instead of the CloudShell model.
+        :type value: str
+        """
+        self.attributes['CS_PowerPort.Model Name'] = value
 
 
 

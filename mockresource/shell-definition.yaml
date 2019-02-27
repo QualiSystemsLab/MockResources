@@ -1,7 +1,7 @@
 tosca_definitions_version: tosca_simple_yaml_1_0
 
 metadata:
-  template_name: Conceptresource
+  template_name: Mockresource
   template_author: Tim.s@quali.com
   template_version: 0.2.0
   template_icon: shell-icon.png
@@ -14,7 +14,7 @@ imports:
 
 node_types:
 
-  vendor.resource.Conceptresource:
+  vendor.resource.Mockresource:
     derived_from: cloudshell.nodes.GenericResource
     properties:
       num_ports:
@@ -62,5 +62,5 @@ node_types:
         file: shell-icon.png
         type: tosca.artifacts.File
       driver:
-        file: ConceptresourceDriver.zip
+        file: MockresourceDriver.zip
         type: tosca.artifacts.File

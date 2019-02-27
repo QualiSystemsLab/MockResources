@@ -2,15 +2,15 @@
 # -*- coding: utf-8 -*-
 
 """
-Tests for `ConceptresourceDriver`
+Tests for `MockresourceDriver`
 """
 
 import unittest
 
-from driver import ConceptresourceDriver
+from driver import MockresourceDriver
 
 
-class TestConceptresourceDriver(unittest.TestCase):
+class TestMockresourceDriver(unittest.TestCase):
 
     def setUp(self):
         pass

@@ -4,7 +4,7 @@ from cloudshell.shell.core.driver_context import InitCommandContext, ResourceCom
 from data_model import *  # run 'shellfoundry generate' to generate data model classes
 
 
-class ConceptpduDriver (ResourceDriverInterface):
+class MockpduDriver (ResourceDriverInterface):
 
     def __init__(self):
         """
@@ -40,7 +40,7 @@ class ConceptpduDriver (ResourceDriverInterface):
         # In real life, this code will be preceded by SNMP/other calls to the resource details and will not be static
         # run 'shellfoundry generate' in order to create classes that represent your data model
         '''
-        resource = Conceptpdu.create_from_context(context)
+        resource = Mockpdu.create_from_context(context)
         resource.vendor = 'specify the shell vendor'
         resource.model = 'specify the shell model'
 
@@ -49,9 +49,9 @@ class ConceptpduDriver (ResourceDriverInterface):
         return resource.create_autoload_details()
         '''
 
-        resource = Conceptpdu.create_from_context(context)
-        resource.vendor = 'CS Conceptual Resources'
-        resource.model = 'ConceptPDU'
+        resource = Mockpdu.create_from_context(context)
+        resource.vendor = 'CS Mock Resources'
+        resource.model = 'MockPDU'
 
         length = str(len(str(resource.num_ports)))
         for port in range(1, int(resource.num_ports)+1):
@@ -144,21 +144,24 @@ class ConceptpduDriver (ResourceDriverInterface):
             """
             :type context: cloudshell.shell.core.driver_context.ResourceRemoteCommandContext
             """
-            return "Conceptually Powering On {}".format(ports)
+            resource = Mockpdu.create_from_context(context)
+            return "MockPDU {} Powering On ports {}".format(resource.name, ports)
             pass
 
     def PowerOff(self, context, ports):
             """
             :type context: cloudshell.shell.core.driver_context.ResourceRemoteCommandContext
             """
-            return "Conceptually Powering Off {}".format(ports)
+            resource = Mockpdu.create_from_context(context)
+            return "MockPDU {} Powering Off ports {}".format(resource.name, ports)
             pass
 
     def PowerCycle(self, context, ports, delay):
             """
             :type context: cloudshell.shell.core.driver_context.ResourceRemoteCommandContext
             """
-            return "Conceptually PowerCycling {} with delay {}".format(ports, delay)
+            resource = Mockpdu.create_from_context(context)
+            return "MockPDU {} PowerCycling ports {} with delay {}".format(resource.name, ports, delay)
             pass
 
     # </editor-fold>

@@ -2,15 +2,15 @@
 # -*- coding: utf-8 -*-
 
 """
-Tests for `ConceptpduDriver`
+Tests for `MockpduDriver`
 """
 
 import unittest
 
-from driver import ConceptpduDriver
+from driver import MockpduDriver
 
 
-class TestConceptpduDriver(unittest.TestCase):
+class TestMockpduDriver(unittest.TestCase):
 
     def setUp(self):
         pass

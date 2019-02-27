@@ -63,3 +63,4 @@ cloudshell_config.yml
 */.idea
 */dist
 */*.zip
+.idea

@@ -4,7 +4,7 @@ from cloudshell.shell.core.driver_context import InitCommandContext, ResourceCom
 from data_model import *  # run 'shellfoundry generate' to generate data model classes
 
 
-class ConceptresourceDriver (ResourceDriverInterface):
+class MockresourceDriver (ResourceDriverInterface):
 
     def __init__(self):
         """
@@ -41,7 +41,7 @@ class ConceptresourceDriver (ResourceDriverInterface):
         # run 'shellfoundry generate' in order to create classes that represent your data model
 
         '''
-        resource = Conceptresource.create_from_context(context)
+        resource = Mockresource.create_from_context(context)
         resource.vendor = 'specify the shell vendor'
         resource.model = 'specify the shell model'
 
@@ -52,8 +52,8 @@ class ConceptresourceDriver (ResourceDriverInterface):
         return resource.create_autoload_details()
         '''
 
-        resource = Conceptresource.create_from_context(context)
-        resource.vendor = 'CS Conceptual Resources'
+        resource = Mockresource.create_from_context(context)
+        resource.vendor = 'CS Mockual Resources'
         resource.model = resource.my_model
 
         length = str(len(str(resource.num_ports)))

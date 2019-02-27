@@ -1,4 +1,4 @@
-<Driver Description="Describe the purpose of your CloudShell shell" MainClass="driver.ConceptresourceDriver" Name="ConceptresourceDriver" Version="1.0.0">
+<Driver Description="Describe the purpose of your CloudShell shell" MainClass="driver.MockresourceDriver" Name="MockresourceDriver" Version="1.0.0">
     <Layout>
          <Category Name="Hidden Commands">
             <Command Description="" DisplayName="Orchestration Save" Name="orchestration_save" />
