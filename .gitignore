@@ -61,6 +61,5 @@ cloudshell_config.yml
 
 */.gitignore
 */.idea
-*/dist
 */*.zip
 .idea
