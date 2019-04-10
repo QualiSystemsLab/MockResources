@@ -13,7 +13,7 @@ Mock resources for Demo, Development, Test, &amp; Learning.
 		<li>Dynamically changing model</li>
 	</ul>
 	</li>
-	<li>inventory.xlsx
+	<li>inventory.xlsx - under development
 	<ul>
 		<li>Can be loaded using the Inventory Utilities: https://github.com/QualiSystemsLab/Inventory-Utilities</li>
 		<li>Specifies a set of resource:</li>
