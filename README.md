@@ -1,5 +1,5 @@
 # MockResources
-Mock resources for Demo, Development, &amp; Test
+Mock resources for Demo, Development, Test, &amp; Learning.
 <ul>
 	<li>PDU Mock
 	<ul>
