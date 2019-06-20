@@ -3,7 +3,7 @@ tosca_definitions_version: tosca_simple_yaml_1_0
 metadata:
   template_name: Mockresource
   template_author: Tim.s@quali.com
-  template_version: 1.0.0
+  template_version: 1.1.0
   template_icon: shell-icon.png
 
 description: >
@@ -29,6 +29,10 @@ node_types:
         type: integer
         default: 1
         description: Enter the number of power ports to generate
+      my_vendor:
+        type: string
+        default: CS Mock Resources
+        description: Enter the Vendor name
     #  my_property:
     #    type: string          # optional values: string, integer, float, boolean, cloudshell.datatypes.Password
     #    default: fast
@@ -57,6 +61,9 @@ node_types:
           power_ports:
             type: integer
             default: 1
+          my_vendor:
+            type: string
+            default: CS Mock Resources
     artifacts:
       icon:
         file: shell-icon.png

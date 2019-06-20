@@ -55,12 +55,16 @@ class MockresourceDriver (ResourceDriverInterface):
         resource = Mockresource.create_from_context(context)
         resource.vendor = 'CS Mockual Resources'
         resource.model = resource.my_model
+        resource.vendor = resource.my_vendor
 
+        #If the number of ports is decreased, this will NOT delete them
+        # TODO: Handle decreasing number of ports
         length = str(len(str(resource.num_ports)))
         for port in range(1, int(resource.num_ports)+1):
             po = ResourcePort('Port ' + str(format(port, '0'+length)))
             resource.add_sub_resource(port, po)
 
+        # TODO: Handle decreasing number of ports
         length = str(len(str(resource.power_ports)))
         for port in range(1, int(resource.power_ports)+1):
             po = ResourcePort('Power Port ' + str(format(port, '0'+length)))

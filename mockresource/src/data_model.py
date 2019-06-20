@@ -200,6 +200,21 @@ class Mockresource(object):
         self.attributes['Mockresource.power_ports'] = value
 
     @property
+    def my_vendor(self):
+        """
+        :rtype: str
+        """
+        return self.attributes['Mockresource.my_vendor'] if 'Mockresource.my_vendor' in self.attributes else None
+
+    @my_vendor.setter
+    def my_vendor(self, value='CS Mock Resources'):
+        """
+        Enter the Vendor name
+        :type value: str
+        """
+        self.attributes['Mockresource.my_vendor'] = value
+
+    @property
     def user(self):
         """
         :rtype: str

@@ -1,6 +1,7 @@
 # MockResources
 Mock resources for Demo, Development, Test, &amp; Learning.
 <ul>
+NOTE: IF you want to DECREASE the number of ports, you will have to delete them by hand. Easiest way is to delete all the sub resources then re-run the discovery.
 <li>PDU Mock
 	<ul>
 	<li>Dynamic number of power sockets</li>
@@ -11,6 +12,7 @@ Mock resources for Demo, Development, Test, &amp; Learning.
 	<li>Dynamic number of ports</li>
 	<li>Dynamic number of power ports</li>
 	<li>Dynamically changing model</li>
+	<li>Dynamically changing vendor</li>
 	</ul>
 </li>
 <li>Additional Mocks
