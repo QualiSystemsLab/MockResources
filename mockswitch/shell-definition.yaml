@@ -1,0 +1,88 @@
+tosca_definitions_version: tosca_simple_yaml_1_0
+
+metadata:
+  template_name: Mockswitch
+  template_author: Anonymous
+  template_version: 0.1.0
+  template_icon: shell-icon.png
+
+description: >
+ Sample TOSCA based shell
+
+imports:
+  - cloudshell_standard: cloudshell_networking_standard_5_0_4.yaml
+
+node_types:
+
+  vendor.Mockswitch:
+    derived_from: cloudshell.nodes.Switch
+    properties:
+    #  my_property:
+    #    type: string          # optional values: string, integer, float, boolean, cloudshell.datatypes.Password
+    #    default: fast
+    #    description: Some attribute description
+    #    constraints:
+    #      - valid_values: [fast, slow]
+      num_modules:
+        type: integer
+        default: 1
+        description: Enter the number of modules to generate
+      num_ports:
+        type: integer
+        default: 1
+        description: Enter the number of ports to generate
+      my_model:
+        type: string
+        default: Model-001
+        description: Enter the model name
+      power_ports:
+        type: integer
+        default: 1
+        description: Enter the number of power ports to generate
+      port_channels:
+        type: integer
+        default: 1
+        description: Enter the number of port channels to generate
+      my_vendor:
+        type: string
+        default: CS Mock Switches
+        description: Enter the Vendor name
+
+    capabilities:
+      auto_discovery_capability:
+        type: cloudshell.capabilities.AutoDiscovery
+        properties:
+          enable_auto_discovery:
+            type: boolean
+            default: true
+          auto_discovery_description:
+            type: string
+            default: Describe the auto discovery
+          inventory_description:
+            type: string
+            default: Describe the resource shell template
+          num_modules:
+            type: integer
+            default: 1
+          num_ports:
+            type: integer
+            default: 1
+          my_model:
+            type: string
+            default: Model-001
+          power_ports:
+            type: integer
+            default: 1
+          port_channels:
+            type: integer
+            default: 1
+          my_vendor:
+            type: string
+            default: CS Mock Switches
+    artifacts:
+      icon:
+        file: shell-icon.png
+        type: tosca.artifacts.File
+      driver:
+        file: MockswitchDriver.zip
+        type: tosca.artifacts.File
