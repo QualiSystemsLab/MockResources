@@ -15,6 +15,54 @@ NOTE: IF you want to DECREASE the number of ports, you will have to delete them 
 	<li>Dynamically changing vendor</li>
 	</ul>
 </li>
+<li>Compute Mock
+	<ul>
+	<li>Dynamic number of ports</li>
+	<li>Dynamic number of power ports</li>
+	<li>Dynamically changing model</li>
+	<li>Dynamically changing vendor</li>
+	</ul>
+</li>
+<li>Firewall Mock
+	<ul>
+	<li>Dynamic number of modules</li>
+	<li>Dynamic number of ports</li>
+	<li>Dynamic number of power ports</li>
+	<li>Dynamic number of port channels</li>
+	<li>Dynamically changing model</li>
+	<li>Dynamically changing vendor</li>
+	</ul>
+</li>
+<li>Load Balancer Mock
+	<ul>
+	<li>Dynamic number of modules</li>
+	<li>Dynamic number of ports</li>
+	<li>Dynamic number of power ports</li>
+	<li>Dynamic number of port channels</li>
+	<li>Dynamically changing model</li>
+	<li>Dynamically changing vendor</li>
+	</ul>
+</li>
+<li>Router Mock
+	<ul>
+	<li>Dynamic number of modules</li>
+	<li>Dynamic number of ports</li>
+	<li>Dynamic number of power ports</li>
+	<li>Dynamic number of port channels</li>
+	<li>Dynamically changing model</li>
+	<li>Dynamically changing vendor</li>
+	</ul>
+</li>
+<li>Switch Mock
+	<ul>
+	<li>Dynamic number of modules</li>
+	<li>Dynamic number of ports</li>
+	<li>Dynamic number of power ports</li>
+	<li>Dynamic number of port channels</li>
+	<li>Dynamically changing model</li>
+	<li>Dynamically changing vendor</li>
+	</ul>
+</li>
 <li>Additional Mocks
 	<ul>
 	<li>https://github.com/QualiSystemsLab/Quali-University-Prep/tree/master/Shells</li>
