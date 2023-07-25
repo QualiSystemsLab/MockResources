@@ -1,0 +1,2 @@
+cloudshell-shell-core>=4.0.0,<4.1.0
+cloudshell-networking>=5.0.0,<5.1.0
